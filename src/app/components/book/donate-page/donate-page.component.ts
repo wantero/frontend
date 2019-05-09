@@ -20,6 +20,7 @@ export class DonatePageComponent implements OnInit {
   showNote: Boolean = false;
   formGroup: FormGroup;
   bookId: string;
+  showFireworks: boolean;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -94,7 +95,14 @@ export class DonatePageComponent implements OnInit {
   }
 
   onCustom(event) {
-    if (event.action === 'donate') {
+    this.showFireworks = true;
+
+    setTimeout(() => {
+      console.log('showFire time');
+      this.showFireworks = false;
+    }, 5000);
+
+    /*if (event.action === 'donate') {
       const modalRef = this._modalService.open(DonateComponent, {
         backdropClass: 'light-blue-backdrop',
         centered: true
@@ -108,7 +116,7 @@ export class DonatePageComponent implements OnInit {
           this.back();
         }
       });
-    }
+    }*/
   }
 
   back() {

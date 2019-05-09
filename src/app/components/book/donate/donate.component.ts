@@ -23,6 +23,7 @@ export class DonateComponent implements OnInit {
   myNote: String;
   formGroup: FormGroup;
   donateBookUser: DonateBookUser;
+  showFireworks: boolean;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -44,13 +45,21 @@ export class DonateComponent implements OnInit {
   }
 
   onDonate() {
+    console.log('showFire');
+    this.showFireworks = true;
+
     this.donateBookUser = new DonateBookUser();
     this.donateBookUser.userId = this.userId;
     this.donateBookUser.note = this.formGroup.value.myNote;
 
     this.isLoading = true;
 
-    this._scBook.donateBookUser(this.bookId, this.donateBookUser).subscribe(
+    setTimeout(() => {
+      console.log('showFire time');
+      this.showFireworks = false;
+    }, 5000);
+
+    /*this._scBook.donateBookUser(this.bookId, this.donateBookUser).subscribe(
       resp => {
         if (!resp.success) {
           this._toastr.error(resp.messages[0]);
@@ -64,6 +73,6 @@ export class DonateComponent implements OnInit {
         this.isLoading = false;
         this._toastr.error(error);
       }
-    );
+    );*/
   }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 // used to create fake backend
 import { fakeBackendProvider } from './core/helpers';
 
+import { FireworksComponent } from './components/fireworks/fireworks.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContributeProjectComponent } from './components/contribute-project/contribute-project.component';
@@ -69,6 +70,7 @@ import { DonatePageComponent } from './components/book/donate-page/donate-page.c
 @NgModule({
   declarations: [
     AppComponent,
+    FireworksComponent,
     BookFormComponent,
     BookDetailComponent,
     HomeComponent,
@@ -96,6 +98,9 @@ import { DonatePageComponent } from './components/book/donate-page/donate-page.c
     FacilitatorNotesComponent,
     MainUsersComponent,
     PrivacyPolicyComponent
+  ],
+  exports: [
+    FireworksComponent
   ],
   imports: [
     BrowserModule,
@@ -144,6 +149,10 @@ import { DonatePageComponent } from './components/book/donate-page/donate-page.c
     TrackingComponent,
     FacilitatorNotesComponent,
     MainUsersComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })
