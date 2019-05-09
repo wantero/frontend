@@ -8,6 +8,10 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: [ 'run', 'build-prod', '' ]
 
+  # Build the app image.
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/sharebook-front:$SHORT_SHA', '.' ]
+
   # push image to gcr
   - name: 'gcr.io/cloud-builders/docker'
     id: Push
