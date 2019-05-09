@@ -6,7 +6,7 @@ steps:
 
   # Build productive files
   - name: 'gcr.io/cloud-builders/npm'
-    args: [ 'run', 'build', '--prod' ]
+    args: [ 'run', 'build-prod', '' ]
 
   # push image to gcr
   - name: 'gcr.io/cloud-builders/docker'
